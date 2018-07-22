@@ -1,4 +1,4 @@
-import acoes
+import actions
 from pynput.mouse import Listener
 
 coordenadas = [0, 0]
@@ -10,17 +10,17 @@ def on_click(x, y, button, pressed):
 from appJar import gui
 
 def makeRunes():
-    acoes.beginRunes()
+    actions.beginRunes()
 
 def vender():
-    acoes.venderYasir()
+    actions.venderYasir()
 
 # handle button events
 def comecarRunar(button):
     if button == "Start":
         x = 300
         app.setPollTime(x)
-        app.registerEvent(acoes.beginRunes())
+        app.registerEvent(actions.beginRunes())
 
 def venderYasir(button):
     if button == "Start":
@@ -32,16 +32,16 @@ def pegarCoordenadasDoClick(button):
     print(coordenadas)
     if button == "Definir coordenadas hotkey":
         app.setLabel("coordenadasHotkey2", "["+str(coordenadas[0])+", "+str(coordenadas[1])+"]")
-        acoes.setCoordenadasHotkey(coordenadas[0], coordenadas[1])
+        actions.setCoordenadasHotkey(coordenadas[0], coordenadas[1])
     elif button == "Definir coordenadas comida":
         app.setLabel("coordenadasComida2", "["+str(coordenadas[0])+", "+str(coordenadas[1])+"]")
-        acoes.setCoordenadasComida(coordenadas[0], coordenadas[1])
+        actions.setCoordenadasComida(coordenadas[0], coordenadas[1])
     elif button == "Definir coordenadas norte":
         app.setLabel("coordenadasNorte2", "["+str(coordenadas[0])+", "+str(coordenadas[1])+"]")
-        acoes.setCoordenadasNorte(coordenadas[0], coordenadas[1])
+        actions.setCoordenadasNorte(coordenadas[0], coordenadas[1])
     elif button == "Definir coordenadas sul":
         app.setLabel("coordenadasSul2", "["+str(coordenadas[0])+", "+str(coordenadas[1])+"]")
-        acoes.setCoordenadasSul(coordenadas[0], coordenadas[1])
+        actions.setCoordenadasSul(coordenadas[0], coordenadas[1])
     return
 
 # create a GUI variable called app

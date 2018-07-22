@@ -2,60 +2,75 @@ import win32api, win32con
 import time
 import random
 
+# Left click at x,y coordinates
 def Lclick(x, y):
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, x, y, 0, 0)
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, x, y, 0, 0)
 
+# Right click at x,y coordinates
 def Rclick(x, y):
     win32api.mouse_event(win32con.MOUSEEVENTF_RIGHTDOWN, x, y, 0, 0)
     win32api.mouse_event(win32con.MOUSEEVENTF_RIGHTUP, x, y, 0, 0)
 
-def moverMouse(xFinal, yFinal):
-    xInicial = win32api.GetCursorPos()[0]
-    yInicial = win32api.GetCursorPos()[1]
+# Smoothly moves the cursor to x,y and then left click
+def leftClick(x, y):
+    smoothMouseMove(x, y)
+    time.sleep(random.uniform(0.03, 1.0))
+    Lclick(x, y)
 
-    distanciaX = xFinal - xInicial
-    distanciaY = yFinal - yInicial
-    if distanciaX < 0:
-        distanciaX *= -1
-    if distanciaY < 0:
-        distanciaY *= -1
+# Smoothly moves the cursor to x,y and then right click
+def rightClick(x, y):
+    smoothMouseMove(x, y)
+    time.sleep(random.uniform(0.03, 1.0))
+    Rclick(x, y)
 
-    if distanciaX > distanciaY:
-        if distanciaY != 0:
-            andarY = distanciaX / distanciaY
-        cont = 1
-        while xInicial != xFinal:
+# A smoothly mouse moving function
+def smoothMouseMove(xFinal, yFinal):
+    xBegin = win32api.GetCursorPos()[0]
+    yBegin = win32api.GetCursorPos()[1]
+
+    distanceX = xFinal - xBegin
+    distanceY = yFinal - yBegin
+    if distanceX < 0:
+        distanceX *= -1
+    if distanceY < 0:
+        distanceY *= -1
+
+    if distanceX > distanceY:
+        if distanceY != 0:
+           moveY = distanceX / distanceY
+        count = 1
+        while xBegin != xFinal:
             time.sleep(0.001)
-            if (xFinal - xInicial) >= 0:
-                xInicial += 1
+            if (xFinal - xBegin) >= 0:
+                xBegin += 1
             else:
-                xInicial -= 1
-            if andarY and cont >= andarY:
-                if (yFinal - yInicial) >= 0:
-                    yInicial += 1
+                xBegin -= 1
+            if moveY and count >= moveY:
+                if (yFinal - yBegin) >= 0:
+                    yBegin += 1
                 else:
-                    yInicial -= 1
-                cont = 1
-            win32api.SetCursorPos((xInicial, yInicial))
-            cont += 1
+                    yBegin -= 1
+                count = 1
+            win32api.SetCursorPos((xBegin, yBegin))
+            count += 1
     else:
-        if distanciaX != 0:
-            andarX = distanciaY / distanciaX
+        if distanceX != 0:
+            moveX = distanceY / distanceX
         else:
-            andarX = False
-        cont = 1
-        while yInicial != yFinal:
+            moveX = False
+        count = 1
+        while yBegin != yFinal:
             time.sleep(0.001)
-            if (yFinal - yInicial) >= 0:
-                yInicial += 1
+            if (yFinal - yBegin) >= 0:
+                yBegin += 1
             else:
-                yInicial -= 1
-            if cont >= andarX or andarX != False:
-                if (xFinal - xInicial) >= 0:
-                    xInicial += 1
+                yBegin -= 1
+            if count >= moveX or moveX != False:
+                if (xFinal - xBegin) >= 0:
+                    xBegin += 1
                 else:
-                    xInicial -= 1
-                cont = 1
-            win32api.SetCursorPos((xInicial, yInicial))
-            cont += 1
+                    xBegin -= 1
+                count = 1
+            win32api.SetCursorPos((xBegin, yBegin))
+            count += 1

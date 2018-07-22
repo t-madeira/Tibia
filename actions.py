@@ -1,4 +1,4 @@
-import funcoesMouse as fm
+import mouseFunctions as mf
 import time
 import random
 
@@ -31,8 +31,8 @@ def venderYasir():
 
     print ("teste")
     while i< 50:
-        fm.Lclick(coordenadasNorte[0], coordenadasNorte[1])
-        fm.Lclick(coordenadasSul[0], coordenadasSul[1])
+        mf.Lclick(coordenadasNorte[0], coordenadasNorte[1])
+        mf.Lclick(coordenadasSul[0], coordenadasSul[1])
         i += 1
 
 def beginRunes():
@@ -42,46 +42,46 @@ def beginRunes():
     time.sleep(3)
     # while 1:
     # Andar e voltar pro Depot
-    fm.leftClick(coordenadasNorte[0], coordenadasNorte[1])
+    mf.leftClick(coordenadasNorte[0], coordenadasNorte[1])
     time.sleep(random.uniform(1.03, 2.0))
-    fm.leftClick(coordenadasSul[0], coordenadasSul[1])
+    mf.leftClick(coordenadasSul[0], coordenadasSul[1])
 
     # Fazer primeira runa
-    fm.moverMouse(coordenadasHotkey[0], coordenadasHotkey[1])
+    mf.smoothMouseMove(coordenadasHotkey[0], coordenadasHotkey[1])
     time.sleep(random.uniform(0.03, 1.0))
-    fm.Lclick(coordenadasHotkey[0], coordenadasHotkey[1])
+    mf.Lclick(coordenadasHotkey[0], coordenadasHotkey[1])
 
     # Esperar
     time.sleep(random.uniform(2.0, 3.0))
 
     # Fazer segunda runa
-    fm.Lclick(coordenadasHotkey[0], coordenadasHotkey[1])
+    mf.Lclick(coordenadasHotkey[0], coordenadasHotkey[1])
 
     # Esperar
     time.sleep(random.uniform(2.0, 3.0))
 
     # Fazer terceira runa
-    fm.Lclick(coordenadasHotkey[0], coordenadasHotkey[1])
+    mf.Lclick(coordenadasHotkey[0], coordenadasHotkey[1])
 
     # Esperar
     time.sleep(random.uniform(2.0, 3.0))
 
     # # Abrir depot
-    # fm.moverMouse(coordenadasDepot[0], coordenadasDepot[1])
+    # mf.smoothMouseMove(coordenadasDepot[0], coordenadasDepot[1])
     # time.sleep(random.uniform(0.03, 1.0))
-    # fm.Rclick(coordenadasDepot[0], coordenadasDepot[1])
+    # mf.Rclick(coordenadasDepot[0], coordenadasDepot[1])
 
     # Abrir baus e comer
-    fm.moverMouse(coordenadasComida[0], coordenadasComida[1])
+    mf.smoothMouseMove(coordenadasComida[0], coordenadasComida[1])
     time.sleep(random.uniform(0.03, 1.0))
-    fm.Rclick(coordenadasComida[0], coordenadasComida[1])
+    mf.Rclick(coordenadasComida[0], coordenadasComida[1])
     time.sleep(random.uniform(0.03, 1.0))
-    fm.Rclick(coordenadasComida[0], coordenadasComida[1])
+    mf.Rclick(coordenadasComida[0], coordenadasComida[1])
     time.sleep(random.uniform(0.03, 1.0))
-    fm.Rclick(coordenadasComida[0], coordenadasComida[1])
+    mf.Rclick(coordenadasComida[0], coordenadasComida[1])
     time.sleep(random.uniform(0.03, 1.0))
-    fm.Rclick(coordenadasComida[0], coordenadasComida[1])
+    mf.Rclick(coordenadasComida[0], coordenadasComida[1])
     time.sleep(random.uniform(0.03, 1.0))
-    fm.Rclick(coordenadasComida[0], coordenadasComida[1])
+    mf.Rclick(coordenadasComida[0], coordenadasComida[1])
 
     time.sleep(tempoMana)

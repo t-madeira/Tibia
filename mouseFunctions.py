@@ -59,33 +59,3 @@ def moverMouse(xFinal, yFinal):
                 cont = 1
             win32api.SetCursorPos((xInicial, yInicial))
             cont += 1
-
-# norteCoord = [575, 260]
-# sulCoord = [575, 335]
-# lesteCoord = [625, 300]
-# oesteCoord = [545, 300]
-
-def leftClick(x, y):
-    moverMouse(x, y)
-    time.sleep(random.uniform(0.03, 1.0))
-    Lclick(x, y)
-
-def rightClick(x, y):
-    moverMouse(x, y)
-    time.sleep(random.uniform(0.03, 1.0))
-    Rclick(x, y)
-
-def rightClickNorte():
-    moverMouse(norteCoord[0], norteCoord[1])
-    time.sleep(random.uniform(0.03, 1.0))
-    Rclick(norteCoord[0], norteCoord[1])
-
-def leftClickSul():
-    moverMouse(sulCoord[0], sulCoord[1])
-    time.sleep(random.uniform(0.03, 1.0))
-    Lclick(sulCoord[0], sulCoord[1])
-
-def rightClickSul():
-    moverMouse(sulCoord[0], sulCoord[1])
-    time.sleep(random.uniform(0.03, 1.0))
-    Rclick(sulCoord[0], sulCoord[1])

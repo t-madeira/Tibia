@@ -20,7 +20,7 @@ def comecarRunar(button):
     if button == "Start":
         x = 300
         app.setPollTime(x)
-        app.registerEvent(makeRunes)
+        app.registerEvent(acoes.beginRunes())
 
 def venderYasir(button):
     if button == "Start":

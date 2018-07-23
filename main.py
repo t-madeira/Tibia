@@ -1,4 +1,5 @@
 import actions
+
 from pynput.mouse import Listener
 
 coordenadas = [0, 0]
